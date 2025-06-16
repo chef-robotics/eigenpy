@@ -208,6 +208,10 @@ set(${PROJECT_NAME}_SOURCES
 
 add_library(${PROJECT_NAME} SHARED ${${PROJECT_NAME}_SOURCES}
                                    ${${PROJECT_NAME}_HEADERS})
+
+set_target_properties(${PROJECT_NAME}
+                      PROPERTIES OUTPUT_NAME ${PROJECT_NAME}${PYTHON_VERSION_MAJOR}${PYTHON_VERSION_MINOR})
+
 target_include_directories(
   ${PROJECT_NAME} SYSTEM
   PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include>
